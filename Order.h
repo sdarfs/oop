@@ -19,16 +19,19 @@ class OrderForBuyer : public IOrder
 public:
     int number;
     int phoneNumber;
-    int vendorCode;
+    int Code;
     void getTicketForFilm(int check) override
     {
         if (check == phoneNumber)
-            cout <<  "Order number: " << number << endl;
+            cout << "Сode: " << Code << endl << "Order number: " << number << endl;
+        if (check == number)
+            cout << "Code: " << Code << endl << "Phone number: " << phoneNumber << endl;
         else cout << "No any orders" << endl;
     }
-    OrderForBuyer(int num, int phone) {
+    OrderForBuyer(int num, int phone, int vendor) {
         number = num;
         phoneNumber = phone;
+        Code = vendor;
     }
 };
 
@@ -42,12 +45,12 @@ public:
     {
         log();
         if (check == prox->phoneNumber)
-            cout  << "Order number: " << prox->number << endl;
+            cout << "Code: " << prox->Code << endl << "Order number: " << prox->number << endl;
         else cout << "No any orders" << endl;
     }
     ProxyOrder(int num, int phone, int vendor)
     {
-        prox = new OrderForBuyer(num, phone);
+        prox = new OrderForBuyer(num, phone, vendor);
     }
     ~ProxyOrder() { delete prox; }
 };

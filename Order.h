@@ -23,15 +23,15 @@ public:
     void getTicketForFilm(int check) override
     {
         if (check == phoneNumber)
-            cout << "Сode: " << Code << endl << "Order number: " << number << endl;
+            cout << "Film code: " << Code << endl << "Order number: " << number << endl;
         if (check == number)
-            cout << "Code: " << Code << endl << "Phone number: " << phoneNumber << endl;
+            cout << "Film code: " << Code << endl << "Phone number: " << phoneNumber << endl;
         else cout << "No any orders" << endl;
     }
-    OrderForBuyer(int num, int phone, int vendor) {
+    OrderForBuyer(int num, int phone, int code) {
         number = num;
         phoneNumber = phone;
-        Code = vendor;
+        Code = code;
     }
 };
 
@@ -45,12 +45,12 @@ public:
     {
         log();
         if (check == prox->phoneNumber)
-            cout << "Code: " << prox->Code << endl << "Order number: " << prox->number << endl;
+            cout << "Film code: " << prox->Code << endl << "Order number: " << prox->number << endl;
         else cout << "No any orders" << endl;
     }
-    ProxyOrder(int num, int phone, int vendor)
+    ProxyOrder(int num, int phone, int code)
     {
-        prox = new OrderForBuyer(num, phone, vendor);
+        prox = new OrderForBuyer(num, phone, code);
     }
     ~ProxyOrder() { delete prox; }
 };

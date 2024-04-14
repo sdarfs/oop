@@ -1,32 +1,13 @@
 #include <iostream>
-#include "Film.h"
 #include "Order.h"
 int main() {
-    cout << "1 - Delegation" << endl;
-    cout << "2 - Proxy" << endl;
+    cout << "1 - Proxy" << endl;
     int type = 0;
+
     cin >> type;
     switch (type){
-        case(1): {
-            Film *One = new Film();
-            Film *Two = new Film();
-            DramaGenre *typeDrama = new DramaGenre();
-            HorrorGenre *typeHorror = new HorrorGenre();
-            FantasyGenre *typeFantasy = new FantasyGenre();
 
-            cout << endl << endl << " One:" << endl;
-
-            One->addGenre(typeHorror);
-            One->addGenre(typeDrama);
-            One->performallGenre();
-
-            cout << endl << endl << " Two:" << endl;
-            Two->addGenre(typeDrama);
-            Two->addGenre(typeFantasy);
-            Two->performallGenre();
-            break;
-        }
-        case(2):{
+        case(1):{
             cout << "Order - 102030, 89996541965" << endl << endl
                  << "Usual:" << endl;
             cout << "1 - 102030" << endl << "2 - 89996541965" << endl;
